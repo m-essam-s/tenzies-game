@@ -11,16 +11,20 @@ type dieType = {
 
 const App = () => {
 
+  const generateNewDie = (): dieType => {
+    return {
+      id: nanoid(),
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false
+    }
+  }
+
   const [dice, setDice] = useState(allNewDice())
 
   function allNewDice(): dieType[] {
     return Array.from(
       { length: 10 },
-      () => ({
-        id: nanoid(),
-        value: Math.ceil(Math.random() * 6),
-        isHeld: true
-      })
+      () => (generateNewDie())
     )
   }
 
@@ -29,11 +33,30 @@ const App = () => {
       key={die.id}
       value={die.value}
       isHeld={die.isHeld}
+      onClick={() => holdDie(die.id)}
     />
   })
 
   const rollDice = () => {
-    setDice(allNewDice())
+    setDice(oldDice => oldDice.map(die => {
+      if (!die.isHeld) {
+        return generateNewDie()
+      }
+      return die
+    }))
+  }
+
+  const holdDie = (id: string) => {
+    console.log(id)
+    setDice(oldDice => oldDice.map(die => {
+      if (die.id === id) {
+        return {
+          ...die,
+          isHeld: !die.isHeld
+        }
+      }
+      return die
+    }))
   }
 
   return (
@@ -41,7 +64,6 @@ const App = () => {
       <div className="dice-container">
         {diceElement}
       </div>
-
       <button
         className='roll-dice'
         onClick={rollDice}
