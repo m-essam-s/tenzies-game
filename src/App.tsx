@@ -1,17 +1,31 @@
 import Die from './components/Die'
 import { useState } from 'react'
+import { nanoid } from "nanoid"
 import './App.css'
+
+type dieType = {
+  id: string
+  value: number
+  isHeld: boolean
+}
 
 const App = () => {
 
   const [dice, setDice] = useState(allNewDice())
 
-  function allNewDice(): number[] {
-    return Array.from({ length: 10 }, () => Math.ceil(Math.random() * 6))
+  function allNewDice(): dieType[] {
+    return Array.from(
+      { length: 10 },
+      () => ({
+        id: nanoid(),
+        value: Math.ceil(Math.random() * 6),
+        isHeld: false
+      })
+    )
   }
 
-  const diceElement = dice.map((die, index) => {
-    return <Die key={index} value={die} />
+  const diceElement = dice.map(die => {
+    return <Die key={die.id} value={die.value} />
   })
 
   const rollDice = () => {
