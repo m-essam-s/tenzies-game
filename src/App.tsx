@@ -19,13 +19,17 @@ const App = () => {
       () => ({
         id: nanoid(),
         value: Math.ceil(Math.random() * 6),
-        isHeld: false
+        isHeld: true
       })
     )
   }
 
   const diceElement = dice.map(die => {
-    return <Die key={die.id} value={die.value} />
+    return <Die
+      key={die.id}
+      value={die.value}
+      isHeld={die.isHeld}
+    />
   })
 
   const rollDice = () => {
