@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# Tenzies Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun dice-rolling game built with React, where players roll dice until all dice show the same value. Players can hold dice at their current values, and only the unheld dice will roll with each turn. Once all dice match and are held, the game is won, and confetti appears!
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Roll 10 dice until all show the same number.
+- Click to "hold" dice at their current value between rolls.
+- Winning condition: All dice are the same value and held.
+- Confetti effect upon winning the game.
+- Option to start a new game once the current one is won.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React (TypeScript)
+- React Confetti
+- NanoID (for unique dice ID generation)
 
-- Configure the top-level `parserOptions` property like this:
+## How to Run
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone the repository.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   ```bash
+   git clone https://github.com/m-essam-s/tenzies-game.git
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Navigate to the project folder.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+    cd tenzies-game
+    ```
+
+3. Install dependencies.
+
+    ```bash
+    npm install
+    ```
+
+4. Run the app.
+
+    ```bash
+    npm run dev
+    ```
+
+## How to Play
+
+- Click "Roll" to roll all the dice.
+- Click on individual dice to "hold" them in place.
+- Keep rolling until all dice show the same value and are held.
+- Once you've won, click "New Game" to start again.
+
+## License
+
+This project is open-source and available under the MIT License.
