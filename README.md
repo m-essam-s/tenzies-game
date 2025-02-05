@@ -49,6 +49,27 @@ A fun dice-rolling game built with React, where players roll dice until all dice
 - Keep rolling until all dice show the same value and are held.
 - Once you've won, click "New Game" to start again.
 
-## License
+## How to Run
 
-This project is open-source and available under the MIT License.
+1. Clone the repository
+2. Run `cd meme-generator`
+3. Run `npm install`
+4. Run `npm run dev`
+
+## Live Site
+
+The live site can be found [here](https://messams-scrimba-tenzies-game.netlify.app/).
+
+## About this Course
+
+This project was created as part of the [Learn React](https://scrimba.com/learn-react-c0e) course by Bob Ziroll.
+
+## Extra Credit Ideas
+
+1- Add a timer and roll counter to see quickly you can win the game.
+2- Style the dice to look like actual dice with pips instead of numbers.
+3- Deploy your project live for others to play.
+
+## Author
+
+- Code by [Mohamed Essam](https://github.com/m-essam-s).
